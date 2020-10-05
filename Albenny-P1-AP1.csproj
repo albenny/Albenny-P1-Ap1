@@ -16,4 +16,13 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DAL\" />
+    <Folder Include="Entidades\" />
+    <Folder Include="BLL\" />
+    <Folder Include="Data\" />
+    <Folder Include="UI\Consultas\" />
+    <Folder Include="UI\Registros\" />
+  </ItemGroup>
+
 </Project>
