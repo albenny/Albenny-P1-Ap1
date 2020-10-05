@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30028.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Albenny-P1-AP1", "Albenny-P1-AP1.csproj", "{77446F8B-9725-4E41-9DD5-301C4D13DEED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77446F8B-9725-4E41-9DD5-301C4D13DEED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77446F8B-9725-4E41-9DD5-301C4D13DEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77446F8B-9725-4E41-9DD5-301C4D13DEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77446F8B-9725-4E41-9DD5-301C4D13DEED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FCB2709-ADFE-406F-AEF2-7CCF5A6DE667}
+	EndGlobalSection
+EndGlobal
