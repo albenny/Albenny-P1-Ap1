@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Linq.Expressions;
-using Albenny-P1-AP1.DAL;
-using Albenny-P1-AP1.Entidades;
+using Albenny_P1_AP1.Entidades;
+using Albenny_P1_AP1.DAL;
 
-namespace Albenny-P1-AP1.BLL
-{
-    public class CiudadesBLL
+
+namespace Albenny-P1-AP1.BLL;
+    {  public class CiudadesBLL
 {
     //Existe//
     public static bool Existe(int id)
@@ -145,3 +144,6 @@ namespace Albenny-P1-AP1.BLL
         return lista;
     }
 }
+     }
+
+  

@@ -18,8 +18,6 @@
 
 	<ItemGroup>
 		<Folder Include="Data\" />
-		<Folder Include="UI\Consultas\" />
-		<Folder Include="UI\Registros\" />
 	</ItemGroup>
 
 </Project>

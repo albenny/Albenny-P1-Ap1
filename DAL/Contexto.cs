@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Albenny_P1_AP1.Entidades;
+﻿using Albenny_P1_AP1.Entidades;
 using Microsoft.EntityFrameworkCore;
 
 namespace Albenny_P1_AP1.DAL

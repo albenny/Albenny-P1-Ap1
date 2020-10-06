@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Albenny_P1_AP1.BLL
+﻿namespace Albenny_P1_AP1.BLL
 {
     public class Utilidades
     {
