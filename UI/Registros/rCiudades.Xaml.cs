@@ -1,5 +1,4 @@
-﻿using Albenny;
-using Albenny_P1_AP1.BLL;
+﻿using Albenny_P1_AP1.BLL;
 using Albenny_P1_AP1.Entidades;
 using System;
 using System.Collections.Generic;
@@ -10,76 +9,83 @@ using System.Windows;
 
 namespace Albenny_P1_AP1.UI.Registros
 {
-    class rCiudades
+    public partial class rCiudades : Window
     {
-        public partial class rCiudades : Window
-    }
-    private Ciudades ciudades = new Ciudades();
-    public rCiudades()
-    {
-        initializeComponent();
-        this.DataContext = Ciudades;
-    }
-    //Limpiar//
-    private void Limpiar()
-    {
-        this.ciudades = new Ciudades();
-        this.DataContext = Ciudades;
-    }
-
-    //validar//
-    private bool Validar()
-    {
-        bool eaValido = true;
-        if (CiudadIdTextbox.Text.Length == 0)
+        private Ciudades ciudades = new Ciudades();
+        public rCiudades()
         {
-            esValido = false;
-            MessageBox.Show("NO ES VALIDO", MessageBoxButton.OK, MessageBoxImage.Warning);
+            InitializeComponent();
+            this.DataContext = ciudades;
         }
-        return esValido Valido;
-    }
-    //Buscar//
-    private Void BuscarButton_Click(object sender, RoutedEventArgs e)
-    {
-        var usuarios = CiudadesBLL.Buscar(Utilidades.ToInt(CiudadIdTextBox.Tex));
-        if (Ciudades != null)
-            this.Ciudades = Usuarios;
-        else
-            this.Ciudades = new Ciudades();
-        this.DataContext = this.Ciudades;
-    }
-
-    //Guardar//
-    [8:43 p.m., 5/10/2020] ALBENNY🥀🍂:   private void GuardarButton_Click(object sender, RoutedEventArgs e)
-    {
+        //Limpiar//
+        private void Limpiar()
         {
-            if (!Validar())
-                return;
+            this.ciudades = new Ciudades();
+            this.DataContext = ciudades;
+        }
 
-            var paso = CiudadesBLL.Guardar(ciudades);
-            if (paso)
+        //validar//
+        private bool Validar()
+        {
+            bool esValido = true;
+            if (CiudadIdTextbox.Text.Length == 0)
             {
-                Limpiar();
-                MessageBox.Show("Transaccion Exitosa!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                esValido = false;
+                MessageBox.Show("NO ES VALIDO", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            else
-                MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+            return esValido;
         }
-    }
-    //E
-    private void EliminarButton_Click(object sender, RoutedEventArgs e)
-    {
+        //Buscar//
+        private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            if (CiudadesBLL.Eliminar(Utilidades.ToInt(CiudadIdTextbox.Text)))
-            {
-                Limpiar();
-                MessageBox.Show("Registro Eliminado!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+            var ciudad = CiudadesBLL.Buscar(Utilidades.ToInt(CiudadIdTextbox.Text));
+            if (ciudad != null)
+                this.ciudades = ciudad;
             else
-                MessageBox.Show("No fue posible eliminar", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+                this.ciudades = new Ciudades();
+            this.DataContext = this.ciudades;
+        }
+        //Nuevo//
+        private void NuevoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Limpiar();
+        }
+        //Guardar//
+        private void GuardarButton_Click(object sender, RoutedEventArgs e)
+        {
+            {
+                if (!Validar())
+                    return;
+
+                if (NombreTextbox.Text.Trim() == string.Empty)
+                {
+                    MessageBox.Show("El campo Nombre esta vacio.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    NombreTextbox.Focus();
+                    return;
+                }
+
+                var paso = CiudadesBLL.Guardar(ciudades);
+                if (paso)
+                {
+                    Limpiar();
+                    MessageBox.Show("Transaccion Exitosa!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                    MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        //Eliminar
+        private void EliminarButton_Click(object sender, RoutedEventArgs e)
+        {
+            {
+                if (CiudadesBLL.Eliminar(Utilidades.ToInt(CiudadIdTextbox.Text)))
+                {
+                    Limpiar();
+                    MessageBox.Show("Registro Eliminado!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                    MessageBox.Show("No fue posible eliminar", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
-}
-}
-
 }

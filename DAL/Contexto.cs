@@ -9,7 +9,7 @@ namespace Albenny_P1_AP1.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source= DATA \ Base De Datos.db");
+            optionsBuilder.UseSqlite(@"Data Source= Data\Albenny_Ciudades.db");
         }
 
     }

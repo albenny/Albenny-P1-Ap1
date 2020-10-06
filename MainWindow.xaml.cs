@@ -1,15 +1,26 @@
-﻿using System.Windows;
+﻿using Albenny_P1_AP1.UI.Consultas;
+using Albenny_P1_AP1.UI.Registros;
+using System.Windows;
 
 namespace Albenny_P1_AP1
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void rCiudadMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rCiudades rCiudades = new rCiudades();
+            rCiudades.Show();
+        }
+
+        private void cCiudadMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cCiudades cCiudades = new cCiudades();
+            cCiudades.Show();
         }
     }
 }

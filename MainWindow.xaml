@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Albenny_P1_AP1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="450">
+        Title="Menu Principal" Height="450" Width="450">
     <Grid>
+        <StackPanel>
+            <Menu>
+                <MenuItem Header="Registros">
+                    <MenuItem x:Name="rCiudadMenuItem" Click="rCiudadMenuItem_Click" Header="Registrar Ciudad"/>
+                </MenuItem>
 
+                <MenuItem Header="Consultas">
+                    <MenuItem x:Name="cCiudadMenuItem" Click="cCiudadMenuItem_Click" Header="Consultar Ciudad"/>
+                </MenuItem>
+            </Menu>
+        </StackPanel>
     </Grid>
 </Window>

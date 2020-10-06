@@ -6,144 +6,142 @@ using System.Linq.Expressions;
 using Albenny_P1_AP1.Entidades;
 using Albenny_P1_AP1.DAL;
 
-
-namespace Albenny-P1-AP1.BLL;
-    {  public class CiudadesBLL
+namespace Albenny_P1_AP1.BLL
 {
-    //Existe//
-    public static bool Existe(int id)
+    public class CiudadesBLL
     {
-        Contexto contexto = new Contexto();
-        bool encontrado = false;
-        try
+        //Existe//
+        public static bool Existe(int id)
         {
-            encontrado = contexto.Ciudades.Any(d => d.CiudadId == id);
-        }
-        catch (Exception)
-        {
-            throw;
-        }
-        finally
-        {
-            contexto.Dispose();
-        }
-        return encontrado;
-    }
-
-    //Insertar
-    private static bool Insertar(Ciudades ciudades)
-    {
-        bool paso = false;
-        Contexto contexto = new Contexto();
-        try
-        {
-            contexto.Ciudades.Add(ciudades);
-            paso = contexto.SaveChanges() > 0;
-        }
-        catch (Exception)
-        {
-            throw;
-        }
-        finally
-        {
-            contexto.Dispose();
-        }
-        return paso;
-    }
-
-    //Modificar
-    public static bool Modificar(Ciudades ciudades)
-    {
-        bool paso = false;
-        Contexto contexto = new Contexto();
-        try
-        {
-            contexto.Entry(ciudades).State = EntityState.Modified;
-            paso = contexto.SaveChanges() > 0;
-        }
-        catch (Exception)
-        {
-            throw;
-        }
-        finally
-        {
-            contexto.Dispose();
-        }
-        return paso;
-    }
-
-    //Guardar
-    public static bool Guardar(Ciudades ciudades)
-    {
-        if (!Existe(ciudades.CiudadId))
-            return Insertar(ciudades);
-        else
-            return Modificar(ciudades);
-    }
-
-    //Eliminar
-    public static bool Eliminar(int id)
-    {
-        bool paso = false;
-        Contexto contexto = new Contexto();
-        try
-        {
-            var ciudades = contexto.Ciudades.Find(id);
-            if (ciudades != null)
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+            try
             {
-                contexto.Ciudades.Remove(ciudades);
+                encontrado = contexto.Ciudades.Any(c => c.CiudadId == id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
+
+        //Insertar
+        private static bool Insertar(Ciudades ciudades)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+            try
+            {
+                contexto.Ciudades.Add(ciudades);
                 paso = contexto.SaveChanges() > 0;
             }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return paso;
         }
-        catch (Exception)
+
+        //Modificar
+        public static bool Modificar(Ciudades ciudades)
         {
-            throw;
+            bool paso = false;
+            Contexto contexto = new Contexto();
+            try
+            {
+                contexto.Entry(ciudades).State = EntityState.Modified;
+                paso = contexto.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return paso;
         }
-        finally
+
+        //Guardar
+        public static bool Guardar(Ciudades ciudades)
         {
-            contexto.Dispose();
+            if (!Existe(ciudades.CiudadId))
+                return Insertar(ciudades);
+            else
+                return Modificar(ciudades);
         }
-        return paso;
-    }
-    //Buscar
-    public static Ciudades Buscar(int id)
-    {
-        Contexto contexto = new Contexto();
-        Ciudades ciudades;
-        try
+
+        //Eliminar
+        public static bool Eliminar(int id)
         {
-            ciudades = contexto.Ciudades.Find(id);
+            bool paso = false;
+            Contexto contexto = new Contexto();
+            try
+            {
+                var ciudades = contexto.Ciudades.Find(id);
+                if (ciudades != null)
+                {
+                    contexto.Ciudades.Remove(ciudades);
+                    paso = contexto.SaveChanges() > 0;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return paso;
         }
-        catch (Exception)
+        //Buscar
+        public static Ciudades Buscar(int id)
         {
-            throw;
+            Contexto contexto = new Contexto();
+            Ciudades ciudades;
+            try
+            {
+                ciudades = contexto.Ciudades.Find(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return ciudades;
         }
-        finally
+        //GetList
+        public static List<Ciudades> GetList(Expression<Func<Ciudades, bool>> criterio)
         {
-            contexto.Dispose();
+            List<Ciudades> lista = new List<Ciudades>();
+            Contexto contexto = new Contexto();
+            try
+            {
+                lista = contexto.Ciudades.Where(criterio).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return lista;
         }
-        return ciudades;
-    }
-    //GetList
-    public static List<Ciudades> GetList(Expression<Func<Ciudades, bool>> criterio)
-    {
-        List<Ciudades> lista = new List<Ciudades>();
-        Contexto contexto = new Contexto();
-        try
-        {
-            lista = contexto.Ciudades.Where(criterio).ToList();
-        }
-        catch (Exception)
-        {
-            throw;
-        }
-        finally
-        {
-            contexto.Dispose();
-        }
-        return lista;
     }
 }
-     }
-
-  

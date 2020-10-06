@@ -3,8 +3,6 @@ using System.Windows;
 using System.Collections.Generic;
 using Albenny_P1_AP1.BLL;
 using Albenny_P1_AP1.Entidades;
-using Albenny_P1_AP1.UI.Consultas;
-using Albenny_P1_AP1.UI.Registros;
 
 namespace Albenny_P1_AP1.UI.Consultas
 {
@@ -52,3 +50,5 @@ namespace Albenny_P1_AP1.UI.Consultas
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
         }
+    }
+}
